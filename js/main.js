@@ -53,7 +53,7 @@ $(document).ready(() => {
     $.timepicker.setDefaults($.timepicker.regional['ru']);
 
     /* Use timepicker */
-    $('#reservation-datepicker').datetimepicker();
+    $('#reservation-data').datetimepicker();
 
     /* Maskedinput */
     $('#reservation-phone').mask('+375(999) 999-99-99');
