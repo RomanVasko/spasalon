@@ -250,7 +250,7 @@ body {
     }
 
     #rituals-text {
-      width: 555px;
+      max-width: 555px;
       margin: 31px 0 65px 0;
       font-size: 16px;
       font-family: @font-1;
@@ -367,7 +367,7 @@ body {
       font-family: @font-2;
       color: @color-text-1;
       line-height: 1.167;
-      margin: 31px 0 30px 0;
+      margin: 30px 0;
     }
 
     #present-action {
@@ -421,45 +421,50 @@ body {
     }
 
     .master-slick {
-      margin-right: -22px;
+      margin: 0 -12px;
 
-      .slick-prev:before {
-        content: url("../images/prev.png");
-      }
+      .slick-slide {
+        margin: 0 12px;
 
-      .slick-next:before {
-        content: url("../images/next.png");
+        img {
+          width: 100%;
+        }
+
       }
 
       .slick-slide:focus {
         outline: none;
       }
 
-      .slick-dots {
-        bottom: -52px;
+    }
+
+    .mg-slick-controls {
+      position: relative;
+      top: 30px;
+      left: calc(50% - 100px);
+      display: flex;
+      width: 200px;
+      justify-content: center;
+      align-items: center;
+
+      .mg-slick-dots {
         font-size: 18px;
         font-family: @font-1;
         color: rgba(114, 17, 99, 0.702);
+
+        .slick-dots {
+          position: static;
+
+          .slick-active {
+            font-family: @font-3;
+            color: @color-1;
+          }
+        }
       }
 
-      .slick-active {
-        font-family: @font-3;
-        color: @color-1;
-      }
-
-      .slick-prev {
-        top: 350px;
-        left: 496px;
-        z-index: 1;
-      }
-
-      .slick-next {
-        top: 350px;
-        right: 496px;
-        z-index: 1;
-      }
     }
   }
+
 }
 
 #gallery {
@@ -488,7 +493,7 @@ body {
     }
 
     #gallery-text {
-      width: 680px;
+      max-width: 680px;
       font-size: 16px;
       font-family: @font-1;
       color: @color-text-1;
@@ -498,61 +503,65 @@ body {
     .gallery-slick {
       margin: 0 -12px;
 
+      .slick-track {
+        a {
+          margin: 0 12px;
+        }
+      }
+
       img {
-        margin: 0 12px;
+        width: 100%;
 
         &:hover {
           animation: size10 1s linear;
         }
       }
 
-      .slick-prev:before {
-        content: url("../images/prev.png");
-      }
-
-      .slick-next:before {
-        content: url("../images/next.png");
-      }
-
       .slick-slide:focus {
         outline: none;
       }
 
-      .slick-dots {
-        bottom: -72px;
-
-        li button:before,
-        li.slick-active button:before {
-          color: transparent;
-          opacity: 1;
-        }
-
-        li button:before {
-          border: 1px solid @color-1;
-          border-radius: 50%;
-          width: 15px;
-          height: 15px;
-
-        }
-
-        li.slick-active button:before {
-          background-color: @color-1;
-        }
-      }
-
-      .slick-prev {
-        top: 355px;
-        left: 443px;
-        z-index: 1;
-      }
-
-      .slick-next {
-        top: 355px;
-        right: 443px;
-        z-index: 1;
-      }
     }
 
+    .mg-slick-controls {
+      position: relative;
+      top: 30px;
+      left: calc(50% - 160px);
+      display: flex;
+      width: 320px;
+      justify-content: center;
+      align-items: center;
+
+      .mg-slick-dots {
+
+        font-size: 13px;
+        font-family: @font-1;
+        color: rgba(114, 17, 99, 0.702);
+
+        .slick-dots {
+          position: static;
+
+          li button:before,
+          li.slick-active button:before {
+            color: transparent;
+            opacity: 1;
+          }
+
+          li button:before {
+            border: 1px solid @color-1;
+            border-radius: 50%;
+            width: 15px;
+            height: 15px;
+
+          }
+
+          li.slick-active button:before {
+            background-color: @color-1;
+          }
+        }
+      }
+
+    }
   }
 }
 
@@ -634,6 +643,7 @@ body {
           background-color: @color-bg-1;
           font-size: 14px;
           font-family: @font-1;
+          line-height: 1.5;
           color: @color-text-1;
           box-shadow: 0 9px 10px 0.8px rgba(67, 6, 57, 0.12);
           padding: 30px;

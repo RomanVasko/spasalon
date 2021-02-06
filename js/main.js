@@ -62,10 +62,32 @@ $(document).ready(() => {
     $('.master-slick').slick({
         infinite: true,
         dots: true,
+        arrows: true,
         slidesToShow: 3,
         slidesToScroll: 1,
+        appendDots: $("#master-container .mg-slick-dots"),
+        prevArrow: $("#master-container .mg-slick-prev"),
+        nextArrow: $("#master-container .mg-slick-next"),
+        responsive: [
+            {
+                breakpoint: 767,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1,
+                    infinite: false
+                }
+            },
+            {
+                breakpoint: 425,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    infinite: false
+                }
+            }
+        ],
         customPaging: function (slider, i) {
-            let thumb = $(slider.$slides[i]).data();
+            $(slider.$slides[i]).data();
             return '<a>' + (i + 1) + '</a>';
         }
     });
@@ -73,7 +95,20 @@ $(document).ready(() => {
         infinite: true,
         dots: true,
         slidesToShow: 3,
-        slidesToScroll: 1
+        slidesToScroll: 1,
+        appendDots: $("#gallery-container .mg-slick-dots"),
+        prevArrow: $("#gallery-container .mg-slick-prev"),
+        nextArrow: $("#gallery-container .mg-slick-next"),
+        responsive: [
+            {
+                breakpoint: 767,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1,
+                    infinite: false
+                }
+            },
+        ],
     });
 
     /* Accordion */
