@@ -158,6 +158,7 @@ $(document).ready(() => {
         }
     });
 
+
     $('.reserve-btn').click((e) => {
         reserveMessage.hide();
         mistakeValidation.hide();
@@ -231,8 +232,8 @@ $(document).ready(() => {
 
     });
 
-    let success = 0;
     reserveAction.click(() => {
+        let success = 0;
         mistakeValidation.hide();
 
         for (let i = 0; i < reserveFormField.length; i++) {
@@ -252,11 +253,11 @@ $(document).ready(() => {
                 data: 'name=' + $('#reservation-name').val() + '&ritual=' + reserveRitual.val() + '&phone=' + reservePhone.val() + '&time=' + $('#reservation-data').val(),
                 success: () => {
                     reserveFormElementHide.hide();
-                    $('#reservation-cancel').show();
                     reserveMessage.show();
                 },
                 error: () => {
-                    reserveFormField.hide();
+                    reserveFormElementHide.hide();
+                    reserveMessage.show();
                     $('#reservation-message-title').html('ВНИМАНИЕ!')
                     $('#reservation-message-text').html('Возникла ошибка перезвоните нам по телефону +7 (981) 458-85-96');
                 }
