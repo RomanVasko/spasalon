@@ -5,9 +5,12 @@ $(document).ready(() => {
     let reserveRitual = $('#reservation-select');
     let reserveRitualItem = $('#reservation-ritual-item');
     let reserveFormField = $('#reservation > div > input, #reservation > div > select');
-    // let reserveMessage = $('#reservation-message');
+    let reserveFormElementHide = $('#reservation > *').slice(0, 7);
+    let reserveMessage = $('#reservation-message');
     let btnCall = $('#btn_call');
     let mistakeValidation = $('.error-input');
+    let phoneField = $('#answer_phone');
+    let reservePhone = $('#reservation-phone');
 
     /* wow init */
     new WOW().init();
@@ -57,7 +60,8 @@ $(document).ready(() => {
     $('#reservation-data').datetimepicker();
 
     /* Maskedinput */
-    $('#reservation-phone').mask('+375(999) 999-99-99');
+    reservePhone.mask('+375(999) 999-99-99');
+    phoneField.mask('+375(999) 999-99-99');
 
     /* Slick slider */
     $('.master-slick').slick({
@@ -143,11 +147,9 @@ $(document).ready(() => {
         if (getElementId === 'reservation-container' || getElementId === 'reservation-cancel-close' || getElementId === 'reservation-cancel') {
             reserveContainer.hide();
             $('#reservation-ritual-item .ritual-item').remove();
+            reserveFormField.val("");
         }
     });
-
-
-    let success = 0;
 
     /* prohibit entering numbers input name */
     $('#reservation-name').keypress((e) => {
@@ -156,37 +158,39 @@ $(document).ready(() => {
         }
     });
 
-
     $('.reserve-btn').click((e) => {
-
+        reserveMessage.hide();
         mistakeValidation.hide();
+        reserveRitualItem.show();
+        reserveFormElementHide.show();
+
         reserveFormField.css({'border-color': 'rgb(114, 17, 99)', 'margin-bottom': '10px'});
 
         let getButtonId = e.target.id;
-        reserveRitualItem.show();
+
         if (getButtonId === 'btn-ritual-1') {
             let cloneRitual_1 = $('.ritual-item:first-child').clone();
             cloneRitual_1.find('.ritual-item-description-action').remove();
             cloneRitual_1.appendTo('#reservation-ritual-item');
-            reserveRitual.val(1);
+            reserveRitual.val("Массаж камнями");
         }
         if (getButtonId === 'btn-ritual-2') {
             let cloneRitual_2 = $('.ritual-item:nth-child(2)').clone();
             cloneRitual_2.find('.ritual-item-description-action').remove();
             cloneRitual_2.appendTo('#reservation-ritual-item');
-            reserveRitual.val(2);
+            reserveRitual.val("Балийский массаж");
         }
         if (getButtonId === 'btn-ritual-3') {
             let cloneRitual_3 = $('.ritual-item:nth-child(3)').clone();
             cloneRitual_3.find('.ritual-item-description-action').remove();
             cloneRitual_3.appendTo('#reservation-ritual-item');
-            reserveRitual.val(3);
+            reserveRitual.val("С травяными мешочками");
         }
         if (getButtonId === 'btn-ritual-4') {
             let cloneRitual_4 = $('.ritual-item:last-child').clone();
             cloneRitual_4.find('.ritual-item-description-action').remove();
             cloneRitual_4.appendTo('#reservation-ritual-item');
-            reserveRitual.val(4);
+            reserveRitual.val("Антицеллюлитный массаж");
         }
         if (e.target.id === 'btn-ritual-5') {
             reserveRitualItem.hide();
@@ -200,25 +204,25 @@ $(document).ready(() => {
         let value = reserveRitual.val();
         let reserveRitualClone = $('#reservation-ritual-item .ritual-item');
         reserveRitualItem.show();
-        if (value === '1') {
+        if (value === 'Массаж камнями') {
             reserveRitualClone.remove();
             let cloneRitual_1 = $('.ritual-item:first-child').clone();
             cloneRitual_1.find('.ritual-item-description-action').remove();
             cloneRitual_1.appendTo('#reservation-ritual-item');
         }
-        if (value === '2') {
+        if (value === 'Балийский массаж') {
             reserveRitualClone.remove();
             let cloneRitual_2 = $('.ritual-item:nth-child(2)').clone();
             cloneRitual_2.find('.ritual-item-description-action').remove();
             cloneRitual_2.appendTo('#reservation-ritual-item');
         }
-        if (value === '3') {
+        if (value === 'С травяными мешочками') {
             reserveRitualClone.remove();
             let cloneRitual_3 = $('.ritual-item:nth-child(3)').clone();
             cloneRitual_3.find('.ritual-item-description-action').remove();
             cloneRitual_3.appendTo('#reservation-ritual-item');
         }
-        if (value === '4') {
+        if (value === 'Антицеллюлитный массаж') {
             reserveRitualClone.remove();
             let cloneRitual_4 = $('.ritual-item:last-child').clone();
             cloneRitual_4.find('.ritual-item-description-action').remove();
@@ -227,6 +231,7 @@ $(document).ready(() => {
 
     });
 
+    let success = 0;
     reserveAction.click(() => {
         mistakeValidation.hide();
 
@@ -240,29 +245,47 @@ $(document).ready(() => {
             }
         }
 
-        // if (success === 4) {
-        //     reserveFormField.hide();
-        //     reserveAction.hide();
-        //     $('#reservation-title').hide();
-        //     reserveRitualItem.hide();
-        //     reserveMessage.css('display', 'flex');
-        //     reserveMessage.parent().css({'max-width': '532px'});
-        // }
+        if (success === 4) {
+            $.ajax({
+                type: 'post',
+                url: 'mail.php',
+                data: 'name=' + $('#reservation-name').val() + '&ritual=' + reserveRitual.val() + '&phone=' + reservePhone.val() + '&time=' + $('#reservation-data').val(),
+                success: () => {
+                    reserveFormElementHide.hide();
+                    $('#reservation-cancel').show();
+                    reserveMessage.show();
+                },
+                error: () => {
+                    reserveFormField.hide();
+                    $('#reservation-message-title').html('ВНИМАНИЕ!')
+                    $('#reservation-message-text').html('Возникла ошибка перезвоните нам по телефону +7 (981) 458-85-96');
+                }
+            });
+        }
     });
 
     /* Validation form call */
     btnCall.click(() => {
         mistakeValidation.hide();
-        let phoneField = $('#answer_phone');
 
         phoneField.css({'border-color': 'rgb(114, 17, 99)', 'margin-bottom': '15px'});
         if (!phoneField.val()) {
             phoneField.siblings('.error-input').show();
             phoneField.css({'border-color': 'red', 'margin-bottom': '5px'})
         } else {
-            phoneField.hide();
-            btnCall.hide();
-            $('#answer-form-message').css('display', 'block');
+
+            $.ajax({
+                type: 'post',
+                url: 'mail.php',
+                data: 'call=' + phoneField.val(),
+                success: () => {
+                    phoneField.hide();
+                    btnCall.hide();
+                    $('#answer-form-message').css('display', 'block');
+                },
+                error: () => {
+                }
+            });
         }
     });
 
