@@ -5,7 +5,7 @@ $(document).ready(() => {
     let reserveRitual = $('#reservation-select');
     let reserveRitualItem = $('#reservation-ritual-item');
     let reserveFormField = $('#reservation > div > input, #reservation > div > select');
-    let reserveMessage = $('#reservation-message');
+    // let reserveMessage = $('#reservation-message');
     let btnCall = $('#btn_call');
     let mistakeValidation = $('.error-input');
 
@@ -265,8 +265,6 @@ $(document).ready(() => {
             $('#answer-form-message').css('display', 'block');
         }
     });
-
-
 
     $('#main-burger').click(() => {
         $('#main-header-container').toggleClass('menu-open');
