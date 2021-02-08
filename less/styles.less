@@ -70,6 +70,10 @@ body {
       align-items: center;
       padding: 40px 0;
 
+      #main-burger {
+        display: none;
+      }
+
       #main-header-menu {
         width: 351px;
         display: flex;
@@ -103,7 +107,7 @@ body {
         //margin-right: 404px;
         position: absolute;
         top: 11px;
-        left: 532px;
+        left: calc(50% - 63px);
       }
     }
   }
@@ -252,9 +256,6 @@ body {
     #rituals-text {
       max-width: 555px;
       margin: 31px 0 65px 0;
-      font-size: 16px;
-      font-family: @font-1;
-      color: @color-text-1;
     }
 
     #rituals-items {
@@ -413,11 +414,8 @@ body {
 
     #master-text {
       max-width: 511px;
-      font-size: 16px;
-      font-family: @font-1;
-      color: @color-text-1;
       line-height: 1.313;
-      margin: 31px 0 46px 0;
+      margin: 30px 0 46px 0;
     }
 
     .master-slick {
@@ -494,9 +492,6 @@ body {
 
     #gallery-text {
       max-width: 680px;
-      font-size: 16px;
-      font-family: @font-1;
-      color: @color-text-1;
       margin: 31px 0 50px 0;
     }
 
@@ -617,7 +612,7 @@ body {
             content: "";
             position: absolute;
             background-color: @color-1;
-            width: 655px;
+            width: calc(100% - 60px);
             height: 1px;
             top: 0;
             left: 30px;
@@ -659,7 +654,7 @@ body {
           height: 12px;
           background: url("../images/arrow-ahead.png");
           top: 37px;
-          right: 30px;
+          right: 4.5%;
         }
 
         .ui-state-active .ui-icon {
@@ -682,7 +677,7 @@ body {
       display: flex;
       flex-direction: column;
       align-items: center;
-      width: 465px;
+      max-width: 465px;
       border-radius: 8px;
       background-color: @color-bg-1;
       box-shadow: 0 2px 9.2px 0.8px rgba(67, 6, 57, 0.12);
@@ -777,9 +772,7 @@ body {
 
     #contacts-text {
       max-width: 370px;
-      font-size: 16px;
-      font-family: @font-1;
-      color: @color-text-1;
+
       line-height: 1.3;
 
       .title {
@@ -1086,6 +1079,7 @@ body {
   }
 }
 
+
 .logo {
   font-size: 55px;
   font-family: "Marguaritas", sans-serif;
@@ -1119,6 +1113,12 @@ body {
   color: rgb(67, 6, 57);
 }
 
+.description {
+  font-size: 16px;
+  font-family: @font-1;
+  color: @color-text-1;
+}
+
 .btn {
   display: inline-block;
   text-align: center;
@@ -1143,6 +1143,10 @@ body {
   color: red;
   display: none;
   margin-bottom: 5px;
+}
+
+.menu-open {
+  display: block;
 }
 
 @keyframes size10 {

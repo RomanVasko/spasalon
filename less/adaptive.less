@@ -59,34 +59,13 @@
     }
   }
 
-
   #present #present-container {
     padding: 0 10px;
   }
 
   #master {
     padding: 90px 10px 100px 10px;
-
-    #master-container {
-
-      .master-slick {
-
-
-        //.slick-prev {
-        //  top: 297px;
-        //  left: 399px;
-        //}
-        //
-        //.slick-next {
-        //  top: 297px;
-        //  right: 399px;
-        //}
-
-      }
-
-    }
   }
-
 
   #gallery #gallery-container {
     padding: 100px 10px 260px 10px;
@@ -147,8 +126,8 @@
 
 /*768-1023*/
 @media screen and (max-width: 1023px) {
-  #main #main-header #main-header-container .logo {
-    left: 425px;
+  #main #main-header #main-header-container #main-header-menu {
+    width: 275px;
   }
 
   #advantages {
@@ -197,11 +176,16 @@
     }
   }
 
-
   #gallery {
     #gallery-container {
       padding-top: 50px;
-      padding-bottom: 150px;
+      padding-bottom: 100px;
+
+      #decor-18 {
+        bottom: 5px;
+        right: 110px;
+      }
+
     }
   }
 
@@ -235,52 +219,232 @@
     }
   }
 
-
   #footer #footer-container {
     #footer-text {
-      width: 330px;
+      max-width: 330px;
+      flex-direction: column;
+
+      #footer-text-description {
+        margin-bottom: 10px;
+      }
     }
 
     .logo {
-      right: 369px;
+      right: calc(50% - 25px);
     }
   }
 
 }
 
-/*425-767*/
+/*630-767*/
 @media screen and (max-width: 767px) {
 
-  #main #main-container {
-    display: flex;
-    justify-content: center;
+  #main {
+    #main-header {
+      #main-header-container {
+        #main-burger {
+          display: block;
+          margin-right: 20px;
 
-    #main-content {
-      text-align: center;
-      padding: 145px 0;
+          svg {
+            width: 36px;
+            height: 36px;
+            fill: @color-text-1;
+          }
+        }
+
+        #main-header-menu {
+          display: none;
+          position: fixed;
+          width: 100%;
+          padding-top: 90px;
+          flex-direction: column;
+          align-items: center;
+          justify-content: flex-start;
+          margin: 0;
+          background: rgba(114, 17, 99, 0.4);
+          top: 0;
+          left: 0;
+          z-index: 9999;
+
+          a {
+            color: wheat;
+            font-size: 22px;
+            margin-bottom: 20px;
+
+            &.active {
+              color: wheat;
+              border-bottom-color: wheat;
+            }
+          }
+        }
+
+        &.menu-open #main-header-menu {
+          display: flex;
+        }
+
+      }
+    }
+
+    #main-container {
+      display: flex;
+      justify-content: center;
+
+      #main-content {
+        text-align: center;
+        padding: 145px 0;
+      }
     }
   }
 
-  #answer #answer-container #answer-form {
-    width: 486px;
+  #contacts {
+    padding: 70px 0 50px 0;
+  }
+
+  #footer {
+    #footer-container {
+      flex-direction: column;
+
+      .logo {
+        right: calc(50% - 63px);
+      }
+
+      #footer-icons {
+        margin: 55px 0 15px 0;
+        width: 218px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+    }
+  }
+
+}
+
+/*425-630*/
+@media screen and (max-width: 630px) {
+  .description {
+    font-size: 14px;
+    text-align: center;
+  }
+
+  .title {
+    font-size: 25px;
+    text-align: center;
+  }
+
+  #main #main-container #main-content {
+    #main-content-title {
+      font-size: 28px;
+    }
+
+    #main-content-description {
+      font-size: 17px;
+    }
+  }
+
+  #present #present-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   #master {
-    #master-container {
+    padding-bottom: 45px;
+
+    #master-container #master-text {
+      max-width: 595px;
+    }
+  }
+
+  #contacts {
+    #contacts-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      #contacts-map {
+        width: 100%;
+        margin-top: 10px;
+      }
+
+      #contacts-text {
+        .title {
+          text-align: center;
+          margin-bottom: 20px;
+        }
+
+        .contact-text-description {
+          margin: 0 auto;
+          text-align: center;
+        }
+      }
 
     }
   }
 
-  #gallery {
-    #gallery-container {
-    }
-  }
 }
 
-
+/*320-425*/
 @media screen and (max-width: 425px) {
-  #answer #answer-container #answer-block #answer-accordion .answer-accordion-text::after {
-    width: 345px;
+  #main {
+    #main-header #main-header-container {
+      .phone {
+        display: none;
+      }
+    }
+
+    #main-container #main-content {
+      #main-content-title {
+        font-size: 20px;
+      }
+
+      #main-content-description {
+        font-size: 13px;
+        margin-top: 10px;
+      }
+    }
+  }
+
+  #rituals {
+    padding-top: 10px;
+  }
+
+  #master {
+    padding-top: 20px;
+  }
+
+  #present #present-container #present-text {
+    text-align: center;
+    width: 274px;
+  }
+
+  #answer {
+    #answer-container #answer-block {
+      #answer-form {
+        width: 300px;
+
+        #answer-form-text {
+          font-size: 12px;
+
+          span {
+            font-size: 12px;
+          }
+        }
+      }
+
+      #answer-accordion {
+        .ui-widget-content {
+          font-size: 12px
+        }
+
+        .ui-accordion-header {
+          font-size: 16px;
+        }
+      }
+
+    }
+
   }
 
 }

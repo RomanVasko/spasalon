@@ -73,16 +73,14 @@ $(document).ready(() => {
                 breakpoint: 767,
                 settings: {
                     slidesToShow: 2,
-                    slidesToScroll: 1,
-                    infinite: false
+                    slidesToScroll: 1
                 }
             },
             {
                 breakpoint: 425,
                 settings: {
                     slidesToShow: 1,
-                    slidesToScroll: 1,
-                    infinite: false
+                    slidesToScroll: 1
                 }
             }
         ],
@@ -104,10 +102,16 @@ $(document).ready(() => {
                 breakpoint: 767,
                 settings: {
                     slidesToShow: 2,
-                    slidesToScroll: 1,
-                    infinite: false
+                    slidesToScroll: 1
                 }
             },
+            {
+                breakpoint: 425,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            }
         ],
     });
 
@@ -256,5 +260,15 @@ $(document).ready(() => {
             $('#answer-form-message').css('display', 'block');
         }
     });
+
+
+
+    $('#main-burger').click(() => {
+        $('#main-header-container').toggleClass('menu-open');
+    })
+
+    $('#main-header-menu a, #main-header-menu').click(() => {
+        $('#main-header-container').removeClass('menu-open');
+    })
 
 })
