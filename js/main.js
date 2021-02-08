@@ -7,6 +7,7 @@ $(document).ready(() => {
     let reserveFormField = $('#reservation > div > input, #reservation > div > select');
     let reserveMessage = $('#reservation-message');
     let btnCall = $('#btn_call');
+    let mistakeValidation = $('.error-input');
 
     /* wow init */
     new WOW().init();
@@ -157,6 +158,10 @@ $(document).ready(() => {
 
 
     $('.reserve-btn').click((e) => {
+
+        mistakeValidation.hide();
+        reserveFormField.css({'border-color': 'rgb(114, 17, 99)', 'margin-bottom': '10px'});
+
         let getButtonId = e.target.id;
         reserveRitualItem.show();
         if (getButtonId === 'btn-ritual-1') {
@@ -222,8 +227,8 @@ $(document).ready(() => {
 
     });
 
-    $(reserveAction).click(() => {
-        $('.error-input').hide();
+    reserveAction.click(() => {
+        mistakeValidation.hide();
 
         for (let i = 0; i < reserveFormField.length; i++) {
             $(reserveFormField[i]).css({'border-color': 'rgb(114, 17, 99)', 'margin-bottom': '10px'});
@@ -235,19 +240,19 @@ $(document).ready(() => {
             }
         }
 
-        if (success === 4) {
-            reserveFormField.hide();
-            reserveAction.hide();
-            $('#reservation-title').hide();
-            reserveRitualItem.hide();
-            reserveMessage.css('display', 'flex');
-            reserveMessage.parent().css({'max-width': '532px'});
-        }
+        // if (success === 4) {
+        //     reserveFormField.hide();
+        //     reserveAction.hide();
+        //     $('#reservation-title').hide();
+        //     reserveRitualItem.hide();
+        //     reserveMessage.css('display', 'flex');
+        //     reserveMessage.parent().css({'max-width': '532px'});
+        // }
     });
 
     /* Validation form call */
     btnCall.click(() => {
-        $('.error-input').hide();
+        mistakeValidation.hide();
         let phoneField = $('#answer_phone');
 
         phoneField.css({'border-color': 'rgb(114, 17, 99)', 'margin-bottom': '15px'});
