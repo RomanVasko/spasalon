@@ -439,9 +439,10 @@ body {
     .mg-slick-controls {
       position: relative;
       top: 30px;
-      left: calc(50% - 100px);
+      //left: calc(50% - 100px);
       display: flex;
-      width: 200px;
+      width: 100%;
+      //width: 200px;
       justify-content: center;
       align-items: center;
 
@@ -521,9 +522,10 @@ body {
     .mg-slick-controls {
       position: relative;
       top: 30px;
-      left: calc(50% - 160px);
+      //left: calc(50% - 160px);
       display: flex;
-      width: 320px;
+      width: 100%;
+      //width: 320px;
       justify-content: center;
       align-items: center;
 
@@ -919,10 +921,22 @@ body {
       outline: none;
     }
 
-    #reservation-select option {
-          color:  @color-text-1;
-          background:  @color-bg-1;
+    #reservation-select {
+      position: relative;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+
+      background-image: url("../images/arrow-select.png");
+      background-position: calc(100% - 20px);
+      background-size: 14px 8px;
+      background-repeat: no-repeat;
+
+      option {
+        color: @color-text-1;
+        background: @color-bg-1;
       }
+    }
 
     .reservation-field {
       padding: 16px 20px;
@@ -1153,7 +1167,7 @@ body {
 }
 
 .ui-datepicker {
-  left: 533px!important;
+  left: 533px !important;
 
   .ui-datepicker-title {
     color: white;

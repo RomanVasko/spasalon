@@ -127,17 +127,18 @@ $(document).ready(() => {
 
     /* Scroll top */
     let elemRituals = $('#rituals');
+    let circleArrow = $('#circle');
     let elemRitualsPosition = elemRituals.offset().top;
-    console.log(elemRitualsPosition);
+    // console.log(elemRitualsPosition);
     let winHeight = $(window).height();
-    console.log(winHeight);
+    // console.log(winHeight);
     let scrollToElem = elemRitualsPosition - winHeight;
     $(window).scroll(() => {
         let winScrollTop = $(this).scrollTop();
         if (winScrollTop > scrollToElem) {
-            $('#circle').css('display', 'flex');
+            circleArrow.css('display', 'flex');
         } else {
-            $('#circle').css('display', 'none');
+            circleArrow.css('display', 'none');
         }
     });
 
@@ -267,6 +268,7 @@ $(document).ready(() => {
 
     /* Validation form call */
     btnCall.click(() => {
+        let callForm = $('#answer-form-message');
         mistakeValidation.hide();
 
         phoneField.css({'border-color': 'rgb(114, 17, 99)', 'margin-bottom': '15px'});
@@ -282,9 +284,10 @@ $(document).ready(() => {
                 success: () => {
                     phoneField.hide();
                     btnCall.hide();
-                    $('#answer-form-message').css('display', 'block');
+                    callForm.css('display', 'block');
                 },
                 error: () => {
+                    callForm.html('ВНИМАНИЕ! Возникла ошибка перезвоните нам по телефону +7 (981) 458-85-96')
                 }
             });
         }

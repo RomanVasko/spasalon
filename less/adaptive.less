@@ -350,17 +350,22 @@
   #reservation-container #reservation {
     padding: 15px 7px;
 
-    reservation-cancel {
+    #reservation-cancel {
       top: -55px;
       right: -2px;
     }
   }
 
-  #present #present-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  #present {
+    padding: 165px 0 165px 0;
+
+    #present-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
   }
+
 
   #master {
     padding-bottom: 45px;
@@ -396,6 +401,19 @@
     }
   }
 
+  #answer #answer-container #answer-block {
+    #answer-accordion {
+      .ui-widget-content {
+        font-size: 12px
+      }
+
+      .ui-accordion-header {
+        font-size: 15px;
+      }
+    }
+  }
+
+
   #reservation-container #reservation #reservation-message #reservation-message-text {
     width: 150px;
     font-size: 14px;
@@ -424,13 +442,22 @@
     }
   }
 
+  #advantages #advantages-container #advantages-items .advantage-item .advantage-item-text {
+    font-size: 12px;
+  }
+
   #rituals {
     padding-top: 10px;
   }
 
   #master {
     padding-top: 20px;
+
+    #master-container #decor-14 {
+      display: none;
+    }
   }
+
 
   #present #present-container #present-text {
     text-align: center;
@@ -448,16 +475,6 @@
           span {
             font-size: 12px;
           }
-        }
-      }
-
-      #answer-accordion {
-        .ui-widget-content {
-          font-size: 12px
-        }
-
-        .ui-accordion-header {
-          font-size: 16px;
         }
       }
     }
