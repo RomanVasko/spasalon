@@ -3,11 +3,11 @@ const gulp = require('gulp');
 const less = require('gulp-less');
 const cssmin = require('gulp-cssmin');
 const rename = require('gulp-rename');
-const browserSync = require('browser-sync');
 const useref = require('gulp-useref');
 const uglify = require('gulp-uglify');
 const gulpIf = require('gulp-if');
 const minifyCSS = require('gulp-minify-css');
+const browserSync = require('browser-sync');
 
 gulp.task('compile-less', function() {
     return gulp.src('./less/*.less')
@@ -32,11 +32,25 @@ gulp.task('useref', function(){
 gulp.task('browserSync', function() {
     browserSync({
         server: {
-            baseDir: 'npm_gulp_grunt'
+            baseDir: './'
+            // directory: true
         },
     })
 });
 
-gulp.task('watch-less', gulp.series('browserSync'), function() {
-    gulp.watch('./less/*.less' , gulp.series('compile-less'));
+gulp.task('less', function() {
+    return gulp.src('./less/*.less')
+        .pipe(less())
+        .pipe(cssmin())
+        .pipe(rename({suffix: '.min'}))
+        .pipe(gulp.dest('./css'))
+        .pipe(browserSync.reload({
+            stream: true
+        }))
 });
+// gulp.task('watch', function() {
+//     gulp.watch('./*.less', ['less']);  // Watch all the .less files, then run the less task
+// });
+
+gulp.task('watch', gulp.series('browserSync'), gulp.watch('./less/*.less' , gulp.series('less')));
+
