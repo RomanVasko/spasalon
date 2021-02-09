@@ -12,7 +12,6 @@ const browserSync = require('browser-sync');
 gulp.task('compile-less', function() {
     return gulp.src('./less/*.less')
         .pipe(less())
-        // .pipe(concatCss("main.css"))
         .pipe(cssmin())
         .pipe(rename({suffix: '.min'}))
         .pipe(gulp.dest('./css'));
@@ -48,9 +47,6 @@ gulp.task('less', function() {
             stream: true
         }))
 });
-// gulp.task('watch', function() {
-//     gulp.watch('./*.less', ['less']);  // Watch all the .less files, then run the less task
-// });
 
 gulp.task('watch', gulp.series('browserSync'), gulp.watch('./less/*.less' , gulp.series('less')));
 
