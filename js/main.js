@@ -276,7 +276,6 @@ $(document).ready(() => {
             phoneField.siblings('.error-input').show();
             phoneField.css({'border-color': 'red', 'margin-bottom': '5px'})
         } else {
-
             $.ajax({
                 type: 'post',
                 url: 'mail.php',
@@ -287,6 +286,9 @@ $(document).ready(() => {
                     callForm.css('display', 'block');
                 },
                 error: () => {
+                    phoneField.hide();
+                    btnCall.hide();
+                    callForm.css('display', 'block');
                     callForm.html('ВНИМАНИЕ! Возникла ошибка перезвоните нам по телефону +7 (981) 458-85-96')
                 }
             });
