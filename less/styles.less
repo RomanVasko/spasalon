@@ -55,7 +55,7 @@ body {
 }
 
 #main {
-   background-image: url("../images/main-bg.png");
+  background-image: url("../images/main-bg.png");
   .position-bg();
 
   #main-header {
@@ -68,7 +68,7 @@ body {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 40px 0;
+      padding: 40px 0 20px 0;
 
       #main-burger {
         display: none;
@@ -83,7 +83,6 @@ body {
           font-size: 13px;
           font-family: @font-2;
           color: @color-text-1;
-          line-height: 1.2;
           text-decoration: none;
           border: 1px solid transparent;
           padding-bottom: 5px;
@@ -95,16 +94,9 @@ body {
           }
         }
 
-        a.active {
-          border-bottom-color: @color-1;
-          color: @color-1;
-        }
-
       }
 
       .logo {
-        //margin-left: 184px;
-        //margin-right: 404px;
         position: absolute;
         top: 11px;
         left: calc(50% - 63px);
@@ -122,6 +114,7 @@ body {
 
       #main-content-title {
         font-size: 36px;
+        line-height: 46px;
         font-family: @font-3;
         color: rgb(67, 6, 57);
 
@@ -442,9 +435,16 @@ body {
       //left: calc(50% - 100px);
       display: flex;
       width: 100%;
-      //width: 200px;
       justify-content: center;
       align-items: center;
+
+      .mg-slick-prev {
+        margin-right: 5px;
+      }
+
+      .mg-slick-next {
+        margin-left: 5px;
+      }
 
       .mg-slick-dots {
         font-size: 18px;
@@ -499,6 +499,18 @@ body {
     .gallery-slick {
       margin: 0 -12px;
 
+      .slick-list {
+        overflow: unset;
+      }
+
+      .slick-slide {
+        opacity: 0.7;
+      }
+
+      .slick-active {
+        opacity: 1;
+      }
+
       .slick-track {
         a {
           margin: 0 12px;
@@ -508,8 +520,10 @@ body {
       img {
         width: 100%;
 
+
         &:hover {
-          animation: size10 1s linear;
+          transition: all .5s linear;
+          transform: scale(1.1);
         }
       }
 
@@ -525,9 +539,16 @@ body {
       //left: calc(50% - 160px);
       display: flex;
       width: 100%;
-      //width: 320px;
       justify-content: center;
       align-items: center;
+
+      .mg-slick-prev {
+        margin-right: 7px;
+      }
+
+      .mg-slick-next {
+        margin-left: 7px;
+      }
 
       .mg-slick-dots {
 
@@ -599,7 +620,7 @@ body {
       align-items: baseline;
 
       #answer-accordion {
-        width: 715px;
+        max-width: 715px;
 
         .answer-accordion-text {
           position: relative;
@@ -655,7 +676,7 @@ body {
           width: 22px;
           height: 12px;
           background: url("../images/arrow-ahead.png");
-          top: 37px;
+          top: 42px;
           right: 4.5%;
         }
 
@@ -871,8 +892,6 @@ body {
     }
 
     .logo {
-      //margin-left: 310px;
-      //margin-right: 106px;
       position: absolute;
       top: 25px;
       right: 529px;
@@ -1085,7 +1104,7 @@ body {
   opacity: 0.702;
   position: fixed;
   right: 10px;
-  bottom: 100px;
+  bottom: 45px;
   z-index: 9998;
   width: 40px;
   height: 40px;
@@ -1141,7 +1160,7 @@ body {
   text-align: center;
   background-color: @color-1;
   font-size: 16px;
-  line-height: 16px;
+  line-height: 15px;
   font-family: @font-2;
   color: rgb(255, 255, 255);
   text-decoration: none;
@@ -1167,7 +1186,6 @@ body {
 }
 
 .ui-datepicker {
-  //left: 533px !important;
 
   .ui-datepicker-title {
     color: white;
@@ -1222,19 +1240,5 @@ body {
   }
 }
 
-@keyframes size10 {
-  0% {
-    transform: scale(1.0);
-  }
-  25% {
-    transform: scale(1.025);
-  }
-  50% {
-    transform: scale(1.05);
-  }
-  100% {
-    transform: scale(1.1);
-  }
-}
 
 @import "adaptive";

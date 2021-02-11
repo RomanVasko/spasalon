@@ -7,49 +7,65 @@
   }
 }
 
-/*1024-1199px*/
-@media screen and (max-width: 1199px) {
+/*1024-1229px*/
+@media screen and (max-width: 1229px) {
   #main {
     #main-header #main-header-container {
-      padding: 40px 10px;
+      padding: 40px 15px 20px 15px;
     }
 
     #main-container {
-      padding: 0 10px;
+      padding: 0 15px;
     }
   }
 
-  #advantages #advantages-container {
-    padding: 75px 10px 0 10px;
+  #advantages {
 
-    #advantages-items {
-      .advantage-item:first-child {
-        margin-right: 85px;
+    #advantages-container {
+      padding: 50px 15px 0 15px;
+
+      #decor-3 {
+        left: 1110px;
       }
 
-      .advantage-item:nth-child(3) {
-        margin-left: 75px;
-        margin-right: 77px;
+      .title {
+        text-align: center;
+      }
+
+      #advantages-items {
+        justify-content: space-around;
+
+        .advantage-item:first-child {
+          margin-right: 0;
+        }
+
+        .advantage-item:nth-child(3) {
+          margin-left: 0;
+          margin-right: 0;
+        }
       }
     }
   }
 
   #rituals {
-    padding: 70px 10px 100px 10px;
+    padding: 50px 15px 100px 15px;
 
     #rituals-container {
-      padding: 0 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
 
       #rituals-flower {
         right: -140px;
       }
 
       #rituals-text {
-        margin-bottom: 35px;
+        text-align: center;
+        margin-bottom: 30px;
       }
 
       #rituals-items {
-        max-width: 845px;
+        max-width: 650px;
         margin: 0 auto 10px auto;
         flex-wrap: wrap;
         justify-content: space-around;
@@ -62,15 +78,38 @@
   }
 
   #present #present-container {
-    padding: 0 10px;
+    padding: 0 15px;
   }
 
   #master {
-    padding: 90px 10px 100px 10px;
+    padding: 90px 15px 100px 15px;
+
+    #master-container {
+
+      .title {
+        text-align: center;
+      }
+
+      #master-text {
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
   }
 
   #gallery #gallery-container {
-    padding: 100px 10px 260px 10px;
+    padding: 0 15px 100px 15px;
+
+    .title {
+      text-align: center;
+    }
+
+    #gallery-text {
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+    }
 
     #decor-18 {
       right: 165px;
@@ -92,15 +131,16 @@
   }
 
   #answer #answer-container {
-    padding: 30px 10px 45px 10px;
+    padding: 30px 15px 45px 15px;
 
     .title {
       text-align: center;
     }
 
     #answer-block {
-      flex-wrap: wrap;
+      flex-direction: column;
       justify-content: center;
+      align-items: center;
 
       #answer-form {
         margin-top: 15px;
@@ -110,7 +150,7 @@
 
   #contacts {
     #contacts-container {
-      padding: 0 10px;
+      padding: 0 15px;
 
       #contacts-text .contact-text-description:nth-child(2) {
         margin-bottom: 40px;
@@ -120,7 +160,7 @@
 
   #footer {
     #footer-container {
-      padding: 47px 10px;
+      padding: 47px 15px;
     }
   }
 
@@ -132,51 +172,6 @@
     width: 275px;
   }
 
-  #advantages {
-    #advantages-container {
-      .title {
-        text-align: center;
-      }
-
-      #advantages-items {
-        justify-content: space-between;
-      }
-    }
-  }
-
-  #rituals {
-    padding-top: 50px;
-
-    #rituals-container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-
-      #rituals-text {
-        text-align: center;
-        margin-bottom: 30px;
-      }
-    }
-  }
-
-  #advantages {
-    #advantages-container {
-      padding: 50px 10px 0 10px;
-
-      #advantages-items {
-        justify-content: space-around;
-
-        .advantage-item:first-child {
-          margin-right: 0;
-        }
-
-        .advantage-item:nth-child(3) {
-          margin-left: 0;
-          margin-right: 0;
-        }
-      }
-    }
-  }
 
   #gallery {
     #gallery-container {
@@ -190,6 +185,11 @@
 
     }
   }
+
+  #master {
+    padding-bottom: 50px;
+  }
+
 
   #contacts {
     #contacts-container {
@@ -263,25 +263,30 @@
           display: none;
           position: fixed;
           width: 100%;
+          height: 100%;
           padding-top: 90px;
           flex-direction: column;
           align-items: center;
           justify-content: flex-start;
           margin: 0;
-          background: rgba(114, 17, 99, 0.4);
+          background: rgba(114, 17, 99, 0.8);
           top: 0;
           left: 0;
           z-index: 9999;
+
+          &::after {
+            content: "\2716";
+            position: fixed;
+            top: 15%;
+            right: 10%;
+            color: wheat;
+            font-size: 36px;
+          }
 
           a {
             color: wheat;
             font-size: 22px;
             margin-bottom: 20px;
-
-            &.active {
-              color: wheat;
-              border-bottom-color: wheat;
-            }
           }
         }
 
@@ -298,13 +303,22 @@
 
       #main-content {
         text-align: center;
-        padding: 145px 0;
       }
     }
   }
 
   #contacts {
     padding: 70px 0 50px 0;
+  }
+
+  #present {
+    background-image: linear-gradient(rgba(255, 255, 255, .5), rgba(255, 255, 255, .5)), url("../images/bg-present.png");
+
+    #present-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
   }
 
   #footer {
@@ -358,23 +372,19 @@
     }
   }
 
-  #present {
-    padding: 165px 0 165px 0;
-
-    #present-container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-  }
-
-
   #master {
     padding-bottom: 45px;
 
-    #master-container #master-text {
-      max-width: 595px;
+    #master-container {
+      #decor-12 {
+        top: -10px;
+      }
+
+      #master-text {
+        max-width: 595px;
+      }
     }
+
   }
 
   #contacts {
@@ -435,17 +445,20 @@
     #main-container #main-content {
       #main-content-title {
         font-size: 20px;
+         .logo {
+          font-size: 65px;
+        }
       }
 
       #main-content-description {
-        font-size: 13px;
+        font-size: 14px;
         margin-top: 10px;
       }
     }
   }
 
   #advantages #advantages-container #advantages-items .advantage-item .advantage-item-text {
-    font-size: 12px;
+    font-size: 14px;
   }
 
   #rituals {
@@ -468,8 +481,12 @@
 
   #answer {
     #answer-container #answer-block {
+      #answer-accordion .ui-icon {
+        right: 3%;
+      }
+
       #answer-form {
-        width: 300px;
+        width: 290px;
 
         #answer-form-text {
           font-size: 12px;
@@ -484,6 +501,7 @@
 
   #reservation-container #reservation #reservation-message {
     padding: 30px 33px;
+
     #reservation-message-text {
       width: 220px
     }

@@ -82,7 +82,7 @@ $(document).ready(() => {
                 }
             },
             {
-                breakpoint: 425,
+                breakpoint: 520,
                 settings: {
                     slidesToShow: 1,
                     slidesToScroll: 1
@@ -111,7 +111,7 @@ $(document).ready(() => {
                 }
             },
             {
-                breakpoint: 425,
+                breakpoint: 520,
                 settings: {
                     slidesToShow: 1,
                     slidesToScroll: 1
@@ -299,8 +299,9 @@ $(document).ready(() => {
         $('#main-header-container').toggleClass('menu-open');
     })
 
-    $('#main-header-menu a, #main-header-menu').click(() => {
+    $('#main-header-menu a, #main-header-menu, #main-header-menu::after').click(() => {
         $('#main-header-container').removeClass('menu-open');
     })
+
 
 })
