@@ -159,7 +159,6 @@ $(document).ready(() => {
         }
     });
 
-
     $('.reserve-btn').click((e) => {
         reserveMessage.hide();
         mistakeValidation.hide();
