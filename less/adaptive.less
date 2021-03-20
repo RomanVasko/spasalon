@@ -339,6 +339,11 @@
     }
   }
 
+  #answer #answer-container #answer-block #answer-accordion {
+    width: 600px;
+  }
+
+
 }
 
 /*425-630*/
@@ -415,6 +420,8 @@
 
   #answer #answer-container #answer-block {
     #answer-accordion {
+      width: 400px;
+
       .ui-widget-content {
         font-size: 12px
       }
@@ -435,6 +442,7 @@
 
 /*320-425*/
 @media screen and (max-width: 425px) {
+
   #main {
     #main-header #main-header-container {
       .phone {
@@ -447,6 +455,9 @@
     }
 
     #main-container #main-content {
+      padding-top: 60px;
+      padding-bottom: 60px;
+
       #main-content-title {
         font-size: 20px;
 
@@ -485,9 +496,13 @@
 
   #answer {
     #answer-container #answer-block {
-      #answer-accordion .ui-icon {
-        top: 46%;
-        right: 3%;
+      #answer-accordion {
+        width: 300px;
+
+        .ui-icon {
+          top: 46%;
+          right: 3%;
+        }
       }
 
       #answer-form {

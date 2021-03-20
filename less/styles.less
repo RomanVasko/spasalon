@@ -80,7 +80,7 @@ body {
         justify-content: space-between;
 
         a {
-          font-size: 13px;
+          font-size: 15px;
           font-family: @font-2;
           color: @color-text-1;
           text-decoration: none;
@@ -132,7 +132,7 @@ body {
         font-family: @font-1;
         color: @color-text-1;
         line-height: 1.25;
-        max-width: 451px;
+        max-width: 444px;
         margin: 40px 0;
       }
 
@@ -260,6 +260,11 @@ body {
         border-radius: 8px;
         background-color: @color-bg-1;
         box-shadow: 0 2px 16.56px 1.44px rgba(44, 5, 38, 0.1);
+        transition: 1.2s;
+
+        &:hover {
+          box-shadow: 0 2px 16.56px 1.44px rgb(175, 0, 214);
+        }
 
         .ritual-item-image {
           font-size: 0;
@@ -620,7 +625,7 @@ body {
       align-items: baseline;
 
       #answer-accordion {
-        max-width: 715px;
+        width: 715px;
 
         .answer-accordion-text {
           position: relative;
@@ -833,6 +838,13 @@ body {
     #contacts-map {
       width: 790px;
       height: 416px;
+      box-shadow: 0 2px 16.56px 1.44px rgba(44, 5, 38, 0.1);
+      border-radius: 10px;
+      transition: 0.8s;
+
+      &:hover {
+        box-shadow: 0 2px 12px -2.56px #af00d6;;
+      }
 
       iframe {
         width: 100%;
@@ -864,8 +876,10 @@ body {
 
       svg {
         fill: @color-text-1;
+        transition: 0.8s;
 
         &:hover {
+          cursor: pointer;
           fill: @color-1;
         }
       }
@@ -1108,6 +1122,7 @@ body {
   z-index: 9998;
   width: 40px;
   height: 40px;
+  transition: 0.6s;
 
   &:hover {
     cursor: pointer;
@@ -1115,12 +1130,16 @@ body {
   }
 }
 
-
 .logo {
   font-size: 55px;
   font-family: "Marguaritas", sans-serif;
   color: rgb(67, 6, 57);
   text-decoration: none;
+  transition: 0.9s;
+
+  &:hover {
+    text-shadow: 1px 1px 5px rgb(67, 6, 57);
+  }
 }
 
 .logo::after {
@@ -1168,9 +1187,11 @@ body {
   box-sizing: border-box;
   border-radius: 25px;
   outline: none;
+  transition: 0.7s;
 
   &:hover {
     cursor: pointer;
+    box-shadow: 2px 2px 12px 4px @color-1;
   }
 }
 
@@ -1238,6 +1259,10 @@ body {
     color: white;
     background: @color-1;
   }
+}
+
+.animate__animated {
+  --animate-duration: 1.5s;
 }
 
 
